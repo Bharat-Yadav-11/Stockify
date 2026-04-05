@@ -8,11 +8,17 @@ const MARKET_STATUS_URL = 'https://www.nseindia.com/api/marketStatus';
 
 module.exports.get_and_save_gainers_loosers = async (req,res) => {
     try {
-        const gainersResponse = await fetch(GAINERS_URL); // axios.get(GAINERS_URL);
-        const losersResponse = await fetch(LOSERS_URL); // axios.get(LOSERS_URL);
+        const headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36',
+            'Referer': 'https://www.nseindia.com/',
+            'Accept': 'application/json'
+        };
+
+        const gainersResponse = await fetch(GAINERS_URL, { headers });
+        const losersResponse = await fetch(LOSERS_URL, { headers });
         
-        const  gainersData = await gainersResponse.json();
-        const  losersData = await losersResponse.json();
+        const gainersData = await gainersResponse.json();
+        const losersData = await losersResponse.json();
 
         if(gainersResponse.status === 200 && losersResponse.status === 200) {
             
@@ -50,7 +56,13 @@ module.exports.get_and_save_gainers_loosers = async (req,res) => {
 
 module.exports.get_and_save_market_status = async (req, res) => {
     try {
-        const response = await fetch(MARKET_STATUS_URL) // axios.get(MARKET_STATUS_URL);
+        const headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36',
+            'Referer': 'https://www.nseindia.com/',
+            'Accept': 'application/json'
+        };
+
+        const response = await fetch(MARKET_STATUS_URL, { headers });
         const data = await response.json();
         // console.log(data);
         if(response.status === 200) {

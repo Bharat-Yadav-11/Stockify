@@ -79,7 +79,9 @@ function Watchlist() {
               symbol.toLowerCase().includes(query.toLowerCase())
             );
           })
-          .slice(0, 20);
+          .slice(0, 10);
+      } else {
+        searchResults = searchResults.slice(0, 10);
       }
 
       setStocks(searchResults);
@@ -211,7 +213,7 @@ function Watchlist() {
           sx={{
             px: 1.5,
             py: 1.2,
-            borderRadius: 3,
+            borderRadius: "15px",
             border: `1px solid ${alpha(colors.white, 0.06)}`,
             backgroundColor: alpha(colors.surfaceSoft, 0.48),
           }}
@@ -222,20 +224,40 @@ function Watchlist() {
               Add this symbol to your active radar.
             </Typography>
           </Stack>
-          {loadingId === result._id ? (
-            <Loading size={22} />
-          ) : (
-            <IconButton
-              onClick={() => handleAddStockToWatchlist(result)}
-              sx={{
-                color: colors.textPrimary,
-                backgroundColor: alpha(colors.brand, 0.16),
-                "&:hover": { backgroundColor: alpha(colors.brand, 0.24) },
-              }}
+          <Stack direction="row" spacing={1} alignItems="center">
+            <Button
+              size="small"
+              variant="outlined"
+              color="info"
+              onClick={() => handleBuySellStock({ scriptId: result }, "Buy")}
+              sx={{ minWidth: 64 }}
             >
-              <AddRoundedIcon />
-            </IconButton>
-          )}
+              Buy
+            </Button>
+            <Button
+              size="small"
+              variant="outlined"
+              color="error"
+              onClick={() => handleBuySellStock({ scriptId: result }, "Sell")}
+              sx={{ minWidth: 64 }}
+            >
+              Sell
+            </Button>
+            {loadingId === result._id ? (
+              <Loading size={22} />
+            ) : (
+              <IconButton
+                onClick={() => handleAddStockToWatchlist(result)}
+                sx={{
+                  color: colors.textPrimary,
+                  backgroundColor: alpha(colors.brand, 0.16),
+                  "&:hover": { backgroundColor: alpha(colors.brand, 0.24) },
+                }}
+              >
+                <AddRoundedIcon />
+              </IconButton>
+            )}
+          </Stack>
         </Stack>
       </MotionBox>
     ));
@@ -250,7 +272,7 @@ function Watchlist() {
           justifyContent="center"
           sx={{
             py: 8,
-            borderRadius: 4,
+            borderRadius: "15px",
             border: `1px dashed ${colors.border}`,
             backgroundColor: alpha(colors.white, 0.02),
           }}
@@ -264,6 +286,11 @@ function Watchlist() {
     }
 
     return userWatchlist.map((watchlistStock) => {
+      // Safety Check: Avoid crash if the reference stock was deleted
+      if (!watchlistStock || !watchlistStock.scriptId) {
+        return null;
+      }
+      
       const change = parseFloat(watchlistStock.scriptId.percentageChange || 0);
       const isPositive = change >= 0;
       return (
@@ -275,7 +302,7 @@ function Watchlist() {
             sx={{
               px: 1.5,
               py: 1.35,
-              borderRadius: 3.5,
+              borderRadius: "15px",
               border: `1px solid ${alpha(colors.white, 0.06)}`,
               backgroundColor: alpha(colors.surfaceSoft, hoverIndex === watchlistStock._id ? 0.9 : 0.55),
               transition: "all 180ms ease",

@@ -55,7 +55,7 @@ function TradeCalculatorCard({ title, accent, values, setters, onRefresh }) {
             <Box
               sx={{
                 p: 2,
-                borderRadius: 4,
+                borderRadius: "15px",
                 backgroundColor: alpha(colors.success, 0.12),
                 border: `1px solid ${alpha(colors.success, 0.24)}`,
               }}
@@ -68,7 +68,7 @@ function TradeCalculatorCard({ title, accent, values, setters, onRefresh }) {
             <Box
               sx={{
                 p: 2,
-                borderRadius: 4,
+                borderRadius: "15px",
                 backgroundColor: alpha(colors.danger, 0.12),
                 border: `1px solid ${alpha(colors.danger, 0.24)}`,
               }}

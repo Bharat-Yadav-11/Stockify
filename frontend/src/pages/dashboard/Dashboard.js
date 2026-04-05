@@ -158,7 +158,7 @@ export default function Dashboard() {
         </MotionBox>
 
         <MotionBox variants={fadeInUp}>
-          <SurfaceCard sx={{ borderRadius: 4 }}>
+          <SurfaceCard sx={{ borderRadius: "15px" }}>
             <Stack
               direction={{ xs: "column", md: "row" }}
               justifyContent="space-between"

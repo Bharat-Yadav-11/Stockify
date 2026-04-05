@@ -101,7 +101,7 @@ export default function PositionsTable() {
     <TableContainer
       component={Paper}
       sx={{
-        borderRadius: 3,
+        borderRadius: "15px",
         backgroundColor: alpha(colors.surfaceSoft, 0.55),
         maxHeight: 660,
         border: `1px solid ${alpha(colors.white, 0.08)}`,
@@ -154,7 +154,7 @@ export default function PositionsTable() {
                         background: position.orderType.toLowerCase() === "buy" ? alpha(colors.info, 0.18) : alpha(colors.brand, 0.18),
                         color: position.orderType.toLowerCase() === "buy" ? colors.info : colors.brand,
                         textAlign: "center",
-                        borderRadius: 1.5,
+                        borderRadius: "15px",
                         fontSize: "0.82rem",
                         padding: "0.28rem 0.75rem",
                         fontWeight: 700,

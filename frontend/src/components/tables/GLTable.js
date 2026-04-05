@@ -98,7 +98,7 @@ export default function GLTable({ type, refreshGL, setRefreshGL }) {
     <TableContainer
       component={Paper}
       sx={{
-        borderRadius: 3,
+        borderRadius: "15px",
         backgroundColor: alpha(colors.surfaceSoft, 0.55),
         maxHeight: 620,
         border: `1px solid ${alpha(colors.white, 0.08)}`,

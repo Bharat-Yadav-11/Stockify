@@ -46,7 +46,11 @@ function Signin() {
       }
     } catch (err) {
       console.log(err);
-      alert(err.response.data.message);
+      if (err.response && err.response.data && err.response.data.message) {
+        alert(err.response.data.message);
+      } else {
+        alert("Could not connect to the server. Please check your internet connection or the backend URL.");
+      }
       setLoading(false);
     }
   };

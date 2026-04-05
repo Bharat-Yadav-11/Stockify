@@ -10,7 +10,7 @@ function SurfaceCard({ children, sx, ...props }) {
         background: `linear-gradient(180deg, ${alpha(colors.surfaceAlt, 0.94)} 0%, ${alpha(colors.surface, 0.92)} 100%)`,
         border: `1px solid ${colors.border}`,
         boxShadow: "0 24px 60px rgba(2, 8, 23, 0.38)",
-        borderRadius: 3,
+        borderRadius: "15px",
         ...sx,
       }}
       {...props}

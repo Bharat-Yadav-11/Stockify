@@ -71,7 +71,7 @@ let theme = createTheme({
     },
   },
   shape: {
-    borderRadius: 20,
+    borderRadius: 15,
   },
   typography: {
     fontFamily: ["Segoe UI", "Trebuchet MS", "sans-serif"].join(","),
@@ -150,7 +150,7 @@ let theme = createTheme({
     MuiCard: {
       styleOverrides: {
         root: {
-          borderRadius: 20,
+          borderRadius: 15,
           backgroundColor: alpha(colors.surface, 0.92),
           border: `1px solid ${colors.border}`,
           boxShadow: "0 24px 80px rgba(2, 8, 23, 0.4)",
@@ -175,7 +175,7 @@ let theme = createTheme({
     MuiOutlinedInput: {
       styleOverrides: {
         root: {
-          borderRadius: 16,
+          borderRadius: 15,
           backgroundColor: alpha(colors.surfaceSoft, 0.7),
           transition: "all 180ms ease",
           "& fieldset": {

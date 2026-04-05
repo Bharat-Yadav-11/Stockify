@@ -92,7 +92,7 @@ export default function OrdersTable({ status, refresh, setRefresh }) {
     <TableContainer
       component={Paper}
       sx={{
-        borderRadius: 3,
+        borderRadius: "15px",
         backgroundColor: alpha(colors.surfaceSoft, 0.55),
         maxHeight: 620,
         border: `1px solid ${alpha(colors.white, 0.08)}`,
@@ -131,7 +131,7 @@ export default function OrdersTable({ status, refresh, setRefresh }) {
                       background: order.orderType.toLowerCase() === "buy" ? alpha(colors.info, 0.18) : alpha(colors.brand, 0.18),
                       color: order.orderType.toLowerCase() === "buy" ? colors.info : colors.brand,
                       textAlign: "center",
-                      borderRadius: 1.5,
+                      borderRadius: "15px",
                       fontSize: "0.82rem",
                       padding: "0.28rem 0.75rem",
                       fontWeight: 700,
@@ -152,7 +152,7 @@ export default function OrdersTable({ status, refresh, setRefresh }) {
                       background: order.status.toLowerCase() === "executed" ? alpha(colors.success, 0.18) : alpha(colors.warning, 0.18),
                       color: order.status.toLowerCase() === "executed" ? colors.success : colors.warning,
                       textAlign: "center",
-                      borderRadius: 1.5,
+                      borderRadius: "15px",
                       fontSize: "0.82rem",
                       padding: "0.28rem 0.75rem",
                       fontWeight: 700,
